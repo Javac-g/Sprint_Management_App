@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Marathons page</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
+</head>
+<body>
+<h1>This is marathons page</h1>
+<a th:href="@{/}">Home page</a>
+<a th:href="@{addMarathon/}"> | AddMarathon </a>
+<br><br>
+<div>
+    <table border="1">
+        <tr>
+            <th>Marathons</th>
+            <th sec:authorize="hasAuthority('MENTOR')">Actions</th>
+        </tr>
+        <tr th:each="marathon: ${marathons}">
+            <td>
+                <a sec:authorize="hasAuthority('MENTOR')" th:text="${marathon.title}"
+                   th:href="@{students/{id}(id=${marathon.id})}"></a>
+                <a sec:authorize="hasAuthority('TRAINEE')" th:text="${marathon.title}"
+                   th:href="@{sprints/{id}(id=${marathon.id})}"></a>
+
+            </td>
+            <td sec:authorize="hasAuthority('MENTOR')">
+                <a th:href="@{edit/{id}(id=${marathon.id})}"> Edit | </a>
+                <a th:href="@{delete/{id}(id=${marathon.id})}"> Close </a>
+            </td>
+        </tr>
+    </table>
+    <br><br>
+</div>
+</body>
+</html>

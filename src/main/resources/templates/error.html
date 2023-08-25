@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Error page</title>
+    <link href="/css/main.css" rel="stylesheet">
+</head>
+<body>
+<div id="error">
+    <div class="error">
+        <div class="error-common">
+            <h1>Oops!</h1>
+            <h2 th:text="${message}"></h2>
+        </div>
+        <a href="/">Go TO Homepage</a>
+    </div>
+</div>
+<!--<table border="1">-->
+<!--    <tr>-->
+<!--        <td>Date</td>-->
+<!--        <td  th:text="${timestamp}"></td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--        <td>Path</td>-->
+<!--        <td th:text="${path}"></td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--        <td>Error</td>-->
+<!--        <td th:text="${error}"></td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--        <td>Status</td>-->
+<!--        <td th:text="${status}"></td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--        <td>Message</td>-->
+<!--        <td th:text="${message}"></td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--        <td>Exception</td>-->
+<!--        <td th:text="${exception}"></td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--        <td>Trace</td>-->
+<!--        <td>-->
+<!--            <pre th:text="${trace}"></pre>-->
+<!--        </td>-->
+<!--    </tr>-->
+<!--</table>-->
+</body>
+</html>

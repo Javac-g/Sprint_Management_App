@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:utext="${mode}"></title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
+</head>
+<body>
+<h1 th:if="!${marathonId}" th:utext="${mode} + ' marathon'"></h1>
+<h1 th:if="${marathonId}" th:utext="${mode} +' marathon ' + ${marathonId}"></h1>
+<form th:object="${marathon}" method="POST">
+    <table>
+        <tr th:if="${mode} == 'Edit'">
+            <td>
+                <label for="id">Id: </label>
+            </td>
+            <td>
+                <input type="text" th:field="*{id}" id="id" disabled>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="title">Title: </label>
+            </td>
+            <td>
+                <input type="text" th:field="*{title}" id="title">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" th:value="${mode} == 'Add'? 'Create' : 'Update'">
+            </td>
+        </tr>
+    </table>
+</form>
+<br/>
+<div th:if="${errorMessage}" th:utext="${errorMessage}"
+     style="color:red;font-style:italic;">
+    ...
+</div>
+</body>
+</html>

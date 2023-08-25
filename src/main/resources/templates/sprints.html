@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Sprints List</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
+</head>
+<body>
+<h1 th:if="${marathonTitle}" th:text="'This is sprints page for marathon ' + ${marathonTitle}"></h1>
+<h1 th:if="!${marathonTitle}">This is sprints page</h1>
+<a th:href="@{/}">Home page</a>
+<br/><br/>
+<div>
+    <table border="1">
+        <tr>
+            <th>Title</th>
+            <th>Start</th>
+            <th>Finish</th>
+        </tr>
+        <tr th:each="sprint : ${sprints}">
+            <td th:utext="${sprint.title}">...</td>
+            <td th:utext="${sprint.start}">...</td>
+            <td th:utext="${sprint.finish}">...</td>
+        </tr>
+    </table>
+    <br><br>
+</div>
+</body>
+</html>
